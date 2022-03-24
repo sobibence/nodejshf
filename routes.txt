@@ -8,7 +8,7 @@ GET /								- index.html
 
 
 GET,POST /gazdi							- new.html
-	saveGazdiMW()
+	createGazdiMW()
 		if(typeof req.body.name === 'undefined'){
 			return next()
 		}
@@ -19,7 +19,8 @@ GET,POST /gazdi							- new.html
 
 GET,POST /gazdi/:gazdiid					- user.html
 	getGazdiMW()
-	saveGazdiMW()
+	getCicaListaMW()
+	updateGazdiMW()
 		if(typeof req.body.name === 'undefined'){
 			return next()
 		}
@@ -33,28 +34,33 @@ GET /gazdi/:gazdiid/delete			- delete gazdi
 		res.redirect('/');
 
 
-GET,POST /cat/:gazdiid					- newcat.html
+GET,POST /cica/:gazdiid					- newcat.html
 	getGazdiMW()
-	saveCicaMW()
+	createCicaMW()
 	renderMW(newcat.html)
 
-GET,POST /cat/:gazdiid/:catid			- editcat.html
+GET,POST /cica/:gazdiid/:cicaid			- editcat.html
 	getGazdiMW()
 	getCicaMW()
-	saveCicaMW()
+	updateCicaMW()
 	renderMW(editcat.html)
 
-GET /cat/:gazdiid/:catid/delete		- delete cat
+GET /cica/:gazdiid/:cicaid/delete		- delete cica
 	getGazdiMW()
 	getCicaMW()
 	deleteCicaMW()
 
 Middewarek:
-	getGazdiListaMW()
-	saveGazdi()
-	deleteGazdi()
-	getGazdiMW()
-	getCicaMW()
-	saveCicaMW()
 	renderMW()
+gazdi/	
+	getGazdiListaMW()
+	updateGazdiMW()
+	deleteGazdiMW()
+	createGazdiMW()
+	getGazdiMW()
+cica/	
+	getCicaMW()
+	createCicaMW()
+	updateCicaMW()
 	deleteCicaMW()
+	getCicaListaMW()
