@@ -9,30 +9,17 @@ GET /								- index.html
 
 GET,POST /gazdi							- new.html
 	createGazdiMW()
-		if(typeof req.body.name === 'undefined'){
-			return next()
-		}
-		res.redirect('/')
 	renderMW(new.html)
-		if sent form != empty 
-			load sent data
 
 GET,POST /gazdi/:gazdiid					- user.html
 	getGazdiMW()
 	getCicaListaMW()
 	updateGazdiMW()
-		if(typeof req.body.name === 'undefined'){
-			return next()
-		}
-		res.redirect('/gazdi/:gazdiid')
 	renderMW(user.html)
 
 GET /gazdi/:gazdiid/delete			- delete gazdi
 	getGazdiMW()
 	deleteGazdiMW()
-		res.locals.gazdi.delete();
-		res.redirect('/');
-
 
 GET,POST /cica/:gazdiid					- newcat.html
 	getGazdiMW()
@@ -49,6 +36,8 @@ GET /cica/:gazdiid/:cicaid/delete		- delete cica
 	getGazdiMW()
 	getCicaMW()
 	deleteCicaMW()
+
+
 
 Middewarek:
 	renderMW()
