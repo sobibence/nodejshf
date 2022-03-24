@@ -3,7 +3,7 @@
 Routing
 
 GET /								- index.html
-	getGazdikMW()
+	getGazdiListaMW()
 	renderMW(index.html)
 
 
@@ -41,10 +41,20 @@ GET,POST /cat/:gazdiid					- newcat.html
 GET,POST /cat/:gazdiid/:catid			- editcat.html
 	getGazdiMW()
 	getCicaMW()
-	saveCatMW()
+	saveCicaMW()
 	renderMW(editcat.html)
 
 GET /cat/:gazdiid/:catid/delete		- delete cat
 	getGazdiMW()
 	getCicaMW()
+	deleteCicaMW()
+
+Middewarek:
+	getGazdiListaMW()
+	saveGazdi()
+	deleteGazdi()
+	getGazdiMW()
+	getCicaMW()
+	saveCicaMW()
+	renderMW()
 	deleteCicaMW()
