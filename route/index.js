@@ -1,19 +1,19 @@
 var express = require('express');
 var app = express();
 
-var renderMW = require('../middlevares/renderMW')
+var renderMW = require('../middlewares/renderMW')
 
-var createGazdiMW = require('../middlevares/gazdi/createGazdiMW')
-var deleteGazdiMW = require('../middlevares/gazdi/deleteGazdiMW')
-var getGazdiMW = require('../middlevares/gazdi/getGazdiMW')
-var updateGazdiMW = require('../middlevares/gazdi/updateGazdiMW')
-var getGazdiListaMW = require('../middlevares/gazdi/getGazdiListaMW')
+var createGazdiMW = require('../middlewares/gazdi/createGazdiMW')
+var deleteGazdiMW = require('../middlewares/gazdi/deleteGazdiMW')
+var getGazdiMW = require('../middlewares/gazdi/getGazdiMW')
+var updateGazdiMW = require('../middlewares/gazdi/updateGazdiMW')
+var getGazdiListaMW = require('../middlewares/gazdi/getGazdiListaMW')
 
-var createCicaMW = require('../middlevares/cica/createCicaMW')
-var deleteCicaMW = require('../middlevares/cica/deleteCicaMW')
-var getCicaMW = require('../middlevares/cica/getCicaMW')
-var updateCicaMW = require('../middlevares/cica/updateCicaMW')
-var getCicaListaMW = require('../middlevares/cica/getCicaListaMW')
+var createCicaMW = require('../middlewares/cica/createCicaMW')
+var deleteCicaMW = require('../middlewares/cica/deleteCicaMW')
+var getCicaMW = require('../middlewares/cica/getCicaMW')
+var updateCicaMW = require('../middlewares/cica/updateCicaMW')
+var getCicaListaMW = require('../middlewares/cica/getCicaListaMW')
 
 module.exports = function(app) {
     var objectrepository = {}; 
