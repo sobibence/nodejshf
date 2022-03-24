@@ -1,0 +1,50 @@
+
+
+Routing
+
+GET /								- index.html
+	getGazdikMW()
+	renderMW(index.html)
+
+
+GET,POST /gazdi							- new.html
+	saveGazdiMW()
+		if(typeof req.body.name === 'undefined'){
+			return next()
+		}
+		res.redirect('/')
+	renderMW(new.html)
+		if sent form != empty 
+			load sent data
+
+GET,POST /gazdi/:gazdiid					- user.html
+	getGazdiMW()
+	saveGazdiMW()
+		if(typeof req.body.name === 'undefined'){
+			return next()
+		}
+		res.redirect('/gazdi/:gazdiid')
+	renderMW(user.html)
+
+GET /gazdi/:gazdiid/delete			- delete gazdi
+	getGazdiMW()
+	deleteGazdiMW()
+		res.locals.gazdi.delete();
+		res.redirect('/');
+
+
+GET,POST /cat/:gazdiid					- newcat.html
+	getGazdiMW()
+	saveCicaMW()
+	renderMW(newcat.html)
+
+GET,POST /cat/:gazdiid/:catid			- editcat.html
+	getGazdiMW()
+	getCicaMW()
+	saveCatMW()
+	renderMW(editcat.html)
+
+GET /cat/:gazdiid/:catid/delete		- delete cat
+	getGazdiMW()
+	getCicaMW()
+	deleteCicaMW()
