@@ -24,14 +24,14 @@ module.exports = function(app) {
 
     app.use('/gazdi',
         createGazdiMW(objectrepository),
-        renderMW(objectrepository,'gazdi')
+        renderMW(objectrepository,'new')
     );
 
     app.use('/gazdi/:gazdiid',
         getGazdiMW(objectrepository),
         getCicaListaMW(objectrepository),
         updateGazdiMW(objectrepository),
-        renderMW(objectrepository,'gazdi')    
+        renderMW(objectrepository,'user')    
     );
 
     app.get('/gazdi/:gazdiid/delete',
@@ -42,14 +42,14 @@ module.exports = function(app) {
     app.use('cica/:gazdiid',
         getGazdiMW(objectrepository),
         createCicaMW(objectrepository),
-        renderMW(objectrepository,'gazdi')
+        renderMW(objectrepository,'newcat')
     );
 
     app.use('cica/:gazdiid/:cicaid',
         getGazdiMW(objectrepository),
         getCicaMW(objectrepository),
         updateCicaMW(objectrepository),
-        renderMW(objectrepository,'cica')
+        renderMW(objectrepository,'editcat')
     );
 
     app.use('cica/:gazdiid/:cicaid/delete',

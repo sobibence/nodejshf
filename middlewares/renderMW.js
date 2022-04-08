@@ -2,8 +2,8 @@
 * Kirendereli a megadott html nezetetet templatinggel.
 */
 
-module.exports = function(objectrepository){
+module.exports = function(objectrepository, viewName){
     return function (req, res, next) {
-        return next();
+        res.render(viewName)
     };
 };

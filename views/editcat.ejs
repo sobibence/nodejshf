@@ -1,0 +1,54 @@
+<%- include('header',{pagetitle:'Cica szerkeztes'})-%>
+<nav class="navbar navbar-light">
+    <a class="navbar-brand" href="/index.html">Főoldal</a>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Cica:</h2>
+            <form>
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label">Név:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="name" value="Pamacs">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="age" class="col-sm-2 col-form-label">Életkor:</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control-plaintext" id="age" value="3">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="color" class="col-sm-2 col-form-label">Szín:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="color" value="Fehér">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="game" class="col-sm-2 col-form-label">Kedvenc játék:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="game" value="Pingponglabda">
+                    </div>
+                </div>
+                <div class="form-group row align-items-center">
+                    <label for="sex" class="col-sm-2 col-form-label">Nem:</label>
+                    <div class = "col-sm-10">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="woman" value="woman" checked>
+                            <label class="form-check-label" for="woman">Lány</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="man" value="man">
+                            <label class="form-check-label" for="man">Fiú</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Mentés</button>
+                <a href="/user.html" class="btn btn-secondary">Mégse</a>
+              </form>
+        </div>
+    </div>
+</div>
+<%- include('footer')-%>
