@@ -15,14 +15,20 @@ var getCicaMW = require('../middlewares/cica/getCicaMW')
 var updateCicaMW = require('../middlewares/cica/updateCicaMW')
 var getCicaListaMW = require('../middlewares/cica/getCicaListaMW')
 
+const CicaModel = require("../models/cica")
+const GazdiModel = require("../models/gazdi")
+
 module.exports = function(app) {
-    var objectrepository = {}; 
+    var objectrepository = {
+        CicaModel: CicaModel,
+        GazdiModel: GazdiModel
+    }; 
     app.get('/',
         getGazdiListaMW(objectrepository),
         renderMW(objectrepository,'index')
     );
 
-    app.use('/gazdi',
+    app.use('/newgazdi',
         createGazdiMW(objectrepository),
         renderMW(objectrepository,'new')
     );
@@ -39,20 +45,20 @@ module.exports = function(app) {
         deleteGazdiMW(objectrepository)
     );
 
-    app.use('cica/:gazdiid',
+    app.use('/newcica/:gazdiid',
         getGazdiMW(objectrepository),
         createCicaMW(objectrepository),
         renderMW(objectrepository,'newcat')
     );
 
-    app.use('cica/:gazdiid/:cicaid',
+    app.use('/cica/:gazdiid/:cicaid',
         getGazdiMW(objectrepository),
         getCicaMW(objectrepository),
         updateCicaMW(objectrepository),
-        renderMW(objectrepository,'editcat')
+        renderMW(objectrepository,'newcat')
     );
 
-    app.use('cica/:gazdiid/:cicaid/delete',
+    app.use('/cica/:gazdiid/:cicaid/delete',
         getGazdiMW(objectrepository),
         getCicaMW(objectrepository),
         deleteCicaMW(objectrepository)

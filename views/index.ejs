@@ -1,4 +1,4 @@
-<%- include('header',{pagetitle:'Fooldal'})-%>
+<%- include ('header',{pagetitle:'Fooldal'})-%>
 <nav class="navbar navbar-light">
     <a class="navbar-brand" href="#">Főoldal</a>
 </nav>
@@ -24,29 +24,32 @@
                         &nbsp;
                     </th>
                 </tr>
-                <tr>
-                    <td>
-                        Kati
-                    </td>
-                    <td>
-                        14
-                    </td>
-                    <td>
-                        Nő
-                    </td>
-                    <td>
-                        3
-                    </td>
-                    <td>
-                        <a href="/user.html" class="btn"><i class="bi bi-pencil-fill"></i></a>
-                        <a href="#" class="btn"><i class="bi bi-trash-fill"></i></a> 
-                    </td>
+                <% for (key in gazdik){ var gazdi = gazdik[key] %>
+                    <tr>
+                        <td>
+                            <%= gazdi.name %>
+                        </td>
+                        <td>
+                            <%= gazdi.age %>
+                        </td>
+                        <td>
+                            <%= gazdi.sex %>
+                        </td>
+                        <td>
+                            <%= gazdi.numofcats %>
+                        </td>
+                        <td>
+                            <a href="/gazdi/<%= gazdi._id %>" class="btn"><i class="bi bi-pencil-fill"></i></a>
+                            <a href="/gazdi/<%= gazdi._id %>/delete" class="btn"><i class="bi bi-trash-fill"></i></a> 
+                        </td>
+                    </tr>
+                <%}; %> 
                 </tr>
 
             </table>
         </div>
         <div class="col-12">
-            <a href="/new.html" class="btn btn-primary">Új gazdi</a>
+            <a href="/newgazdi" class="btn btn-primary">Új gazdi</a>
         </div>
     </div>
 </div>

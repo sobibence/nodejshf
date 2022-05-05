@@ -1,6 +1,6 @@
 <%- include('header',{pagetitle:'Felhasznaloi fiok'})-%>
     <nav class="navbar navbar-light">
-        <a class="navbar-brand" href="/index.html">Főoldal</a>
+        <a class="navbar-brand" href="/">Főoldal</a>
     </nav>
 
     <div class="container">
@@ -10,24 +10,24 @@
                     <div class="form-group row">
                         <label for="name" class="col-sm-2 col-form-label">Név:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control-plaintext" id="name" value="Kati">
+                            <input type="text" class="form-control-plaintext" id="name" value="<%= gazdi.name %>">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="age" class="col-sm-2 col-form-label">Életkor:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control-plaintext" id="age" value="14">
+                                <input type="text" class="form-control-plaintext" id="age" value="<%= gazdi.age %>">
                             </div>
                         </div>
                         <div class="form-group row align-items-center">
                             <label for="sex" class="col-sm-2 col-form-label">Nem:</label>
                             <div class = "col-sm-10">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sex" id="woman" value="woman" checked>
+                                    <input class="form-check-input" type="radio" name="sex" id="woman" value="woman" <%if(gazdi.sex == "Nő"){ %>checked<%}%>>
                                     <label class="form-check-label" for="woman">Nő</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sex" id="man" value="man">
+                                    <input class="form-check-input" type="radio" name="sex" id="man" value="man"<%if(gazdi.sex == "Férfi"){ %>checked<%}%>>
                                     <label class="form-check-label" for="man">Férfi</label>
                                 </div>
                             </div>
@@ -59,37 +59,39 @@
                             &nbsp;
                         </th>
                     </tr>
-                    <tr>
-                        <td>
-                            Pamacs
-                        </td>
-                        <td>
-                            3
-                        </td>
-                        <td>
-                            Fehér
-                        </td>
-                        <td>
-                            Lány
-                        </td>
-                        <td>
-                            Pingponglabda
-                        </td>
-                        <td>
-                            <a href="/editcat.html" class="btn"><i class="bi bi-pencil-fill"></i></a>
-                            <a href="#" class="btn"><i class="bi bi-trash-fill"></i></a> 
-                        </td>
-                    </tr>
+                    <% for (key in cicak){ var cica = cicak[key] %>
+                        <tr>
+                            <td>
+                                <%= cica.name %>
+                            </td>
+                            <td>
+                                <%= cica.age %>
+                            </td>
+                            <td>
+                                <%= cica.color %>
+                            </td>
+                            <td>
+                                <%= cica.sex %>
+                            </td>
+                            <td>
+                                <%= cica.favgame %>
+                            </td>
+                            <td>
+                                <a href="/cica/<%= gazdi._id %>/<%= cica._id %>" class="btn"><i class="bi bi-pencil-fill"></i></a>
+                                <a href="/cica/<%= gazdi._id %>/<%= cica._id %>/delete" class="btn"><i class="bi bi-trash-fill"></i></a> 
+                            </td>
+                        </tr>
+                    <%}; %> 
                 </table>
             </div>
             <div class="col-12">
-                <a href="/newcat.html" class="btn btn-primary">Új cica</a>
+                <a href="/newcica/<%= gazdi._id %>" class="btn btn-primary">Új cica</a>
             </div>
         </div>
         <div class="row">
             <div class="col-12 mt-3">
                 <button type="submit" class="btn btn-primary">Mentés</button>
-                <a href="/index.html" class="btn btn-secondary">Mégse</a>
+                <a href="/" class="btn btn-secondary">Mégse</a>
             </div>
         </div>
     </div>

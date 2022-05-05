@@ -1,8 +1,11 @@
-const Schema = requrie('mongoose').Schema;
+const Schema = require('mongoose').Schema;
 const db = require('../config/db');
 
-var Gazdi = db.model('Gazdi',{
+const Gazdi = db.model('Gazdi',{
+    id: Number,
     name: String,
     age: Number,
     sex: String, 
 });
+
+module.exports = Gazdi;

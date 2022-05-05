@@ -1,4 +1,4 @@
-<%- include('header',{pagetitle:'Uj cica'})-%>
+<%- include('header',{pagetitle:'Cica'})-%>
 <nav class="navbar navbar-light">
     <a class="navbar-brand" href="/index.html">Főoldal</a>
 </nav>
@@ -6,47 +6,47 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h2>Új cica:</h2>
+            <h2>Cica:</h2>
             <form>
                 <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label">Név:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="name">
+                        <input type="text" class="form-control" id="name" value="<%= cica.name%>">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="age" class="col-sm-2 col-form-label">Életkor:</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="age">
+                        <input type="number" class="form-control" id="age"value="<%= cica.age%>">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="color" class="col-sm-2 col-form-label">Szín:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="color">
+                        <input type="text" class="form-control" id="color"value="<%= cica.color%>">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="game" class="col-sm-2 col-form-label">Kedvenc játék:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="color">
+                        <input type="text" class="form-control" id="favgame"value="<%= cica.favgame%>">
                     </div>
                 </div>
                 <div class="form-group row align-items-center">
                     <label for="sex" class="col-sm-2 col-form-label">Nem:</label>
                     <div class = "col-sm-10">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sex" id="woman" value="woman">
+                            <input class="form-check-input" type="radio" name="sex" id="woman" value="woman"<%if(cica.sex == "Lány"){ %>checked<%}%>>
                             <label class="form-check-label" for="woman">Lány</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sex" id="man" value="man">
+                            <input class="form-check-input" type="radio" name="sex" id="man" value="man"<%if(cica.sex == "Fiú"){ %>checked<%}%>>
                             <label class="form-check-label" for="man">Fiú</label>
                         </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Mentés</button>
-                <a href="/user.html" class="btn btn-secondary">Mégse</a>
+                <a href="/gazdi/<%= gazdi._id%>" class="btn btn-secondary">Mégse</a>
               </form>
         </div>
     </div>

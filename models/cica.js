@@ -1,7 +1,7 @@
-const Schema = requrie('mongoose').Schema;
+const Schema = require('mongoose').Schema;
 const db = require('../config/db');
 
-var Cica = db.model('Cica',{
+const Cica = db.model('Cica',{
     name: String,
     age: Number,
     color: String,
@@ -12,3 +12,5 @@ var Cica = db.model('Cica',{
         ref: 'Nagymama'
     }
 });
+
+module.exports = Cica;

@@ -2,8 +2,26 @@
 * Lekerdezi az adott :gazdiid-u gazdit a db-bol, es a res.locals.cica-ba rakja
 */
 
+const requireOption = require('../requireOption');
+
 module.exports = function(objectrepository){
+    const GazdiModel = requireOption(objectrepository, 'GazdiModel');
     return function (req, res, next) {
-        return next();
+        GazdiModel.findOne({ _id : req.params.gazdiid }, (err, gazdi)=>{
+            if(err || !gazdi){
+                return next(err);
+            }
+
+            res.locals.gazdi = gazdi;
+            return next();
+        });
+        // res.locals.user = {
+        //     name: "sanya",
+        //     age: 3,
+        //     sex: "Nő",
+        //     numofcats: 3,
+        //     id:0
+        // };
+        // return next();
     };
 };
