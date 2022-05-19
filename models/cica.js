@@ -6,10 +6,10 @@ const Cica = db.model('Cica',{
     age: Number,
     color: String,
     sex: String, 
-    fav_game: String,
+    game: String,
     _gazdija: {
         type: Schema.Types.ObjectId,
-        ref: 'Nagymama'
+        ref: 'Gazdi'
     }
 });
 

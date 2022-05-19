@@ -2,17 +2,17 @@
 * Lekerdezi az adott :cicaid-u cicat a db-bol, es a res.locals.cica-ba rakja
 */
 
+const requireOption = require('../requireOption');
 module.exports = function(objectrepository){
+    const CicaModel = requireOption(objectrepository, 'CicaModel');
     return function (req, res, next) {
-        res.locals.cat = {
-            name: "pamacs",
-            age: 4,
-            sex: "Lány",
-            favgame: "labda",
-            color:"kek",
-            id:0
-        };
-        //console.log(cat);
-        return next();
+        CicaModel.findOne({ _id : req.params.cicaid }, (err, cica)=>{
+            if(err || !cica){
+                return next(err);
+            }
+
+            res.locals.cica = cica;
+            return next();
+        });
     };
 };

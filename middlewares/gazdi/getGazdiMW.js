@@ -15,13 +15,5 @@ module.exports = function(objectrepository){
             res.locals.gazdi = gazdi;
             return next();
         });
-        // res.locals.user = {
-        //     name: "sanya",
-        //     age: 3,
-        //     sex: "Nő",
-        //     numofcats: 3,
-        //     id:0
-        // };
-        // return next();
     };
 };

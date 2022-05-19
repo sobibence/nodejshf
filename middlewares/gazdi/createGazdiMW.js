@@ -23,6 +23,7 @@ module.exports = function(objectrepository){
         res.locals.gazdi.name = req.body.name;
         res.locals.gazdi.age = req.body.age;
         res.locals.gazdi.sex = req.body.sex;
+        res.locals.gazdi.numofCats = 0;
 
         res.locals.gazdi.save(err =>{
             if(err){

@@ -4,60 +4,61 @@
     </nav>
 
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <form>
+        <form method="POST">
+            <div class="row">
+                <div class="col-12">
+                
                     <div class="form-group row">
                         <label for="name" class="col-sm-2 col-form-label">Név:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control-plaintext" id="name" value="<%= gazdi.name %>">
+                            <input type="text" class="form-control-plaintext" id="name" name="name" value="<%= gazdi.name %>">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="age" class="col-sm-2 col-form-label">Életkor:</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control-plaintext" id="age" value="<%= gazdi.age %>">
-                            </div>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control-plaintext" id="age" name="age"value="<%= gazdi.age %>">
                         </div>
-                        <div class="form-group row align-items-center">
-                            <label for="sex" class="col-sm-2 col-form-label">Nem:</label>
+                    </div>
+                    <div class="form-group row align-items-center">
+                        <label for="sex" class="col-sm-2 col-form-label">Nem:</label>
                             <div class = "col-sm-10">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sex" id="woman" value="woman" <%if(gazdi.sex == "Nő"){ %>checked<%}%>>
+                                    <input class="form-check-input" type="radio" name="sex" id="woman" value="Nő" <%if(gazdi.sex == "Nő"){ %>checked<%}%>>
                                     <label class="form-check-label" for="woman">Nő</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sex" id="man" value="man"<%if(gazdi.sex == "Férfi"){ %>checked<%}%>>
+                                    <input class="form-check-input" type="radio" name="sex" id="man" value="Férfi"<%if(gazdi.sex == "Férfi"){ %>checked<%}%>>
                                     <label class="form-check-label" for="man">Férfi</label>
                                 </div>
                             </div>
                         </div>
-                  </form>
-            </div>
-        </div>
-        <h2>Cicák:</h2>
-        <div class="row">
-            <div class="col-12">
-                <table class="table table-striped table-bordered">
-                    <tr>
-                        <th>
-                            Név
-                        </th>
-                        <th>
-                            Életkor
-                        </th>
-                        <th>
-                            Szín
-                        </th>
-                        <th>
-                            Nem
-                        </th>
-                        <th>
-                            Kedvenc játék
-                        </th>
-                        <th>
-                            &nbsp;
-                        </th>
+                  
+                    </div>
+                </div>
+            <h2>Cicák:</h2>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-striped table-bordered">
+                            <tr>
+                                <th>
+                                Név
+                                </th>
+                                <th>
+                                    Életkor
+                                </th>
+                                <th>
+                                    Szín
+                                </th>
+                                <th>
+                                    Nem
+                                </th>
+                                <th>
+                                    Kedvenc játék
+                                </th>
+                                <th>
+                                    &nbsp;
+                                </th>
                     </tr>
                     <% for (key in cicak){ var cica = cicak[key] %>
                         <tr>
@@ -74,7 +75,7 @@
                                 <%= cica.sex %>
                             </td>
                             <td>
-                                <%= cica.favgame %>
+                                <%= cica.game %>
                             </td>
                             <td>
                                 <a href="/cica/<%= gazdi._id %>/<%= cica._id %>" class="btn"><i class="bi bi-pencil-fill"></i></a>
@@ -94,5 +95,6 @@
                 <a href="/" class="btn btn-secondary">Mégse</a>
             </div>
         </div>
+        </form>
     </div>
     <%- include('footer')-%>
